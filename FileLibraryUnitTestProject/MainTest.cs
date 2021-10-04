@@ -31,10 +31,6 @@ namespace FileLibraryUnitTestProject
             Assert.AreEqual(firstRecordBirthDate, list.First().BirthDate);
             Assert.AreEqual(lastRecordBirthDate, list.Last().BirthDate);
 
-            foreach (var person in list)
-            {
-                Debug.WriteLine(person.BirthDate.ToDateTime(new TimeOnly(1,11)));
-            }
         }
 
         [TestMethod]
