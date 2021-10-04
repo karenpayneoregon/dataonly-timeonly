@@ -2,6 +2,7 @@
 
 This repository demonstrates simple usage of [DateOnly Struct](https://docs.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) done with a prerelease product.
 
+![img](assets/CloneOrFork.png)
 
 There is a [class project](https://github.com/karenpayneoregon/dataonly-timeonly/blob/master/FileLibrary/Classes/Operations.cs) which is responsible for reading a json file with type Person class into a list using [System.Text.Json. JsonSerializer.Deserialize](https://docs.microsoft.com/en-us/dotnet/api/system.text.json?view=net-5.0). In the unit test project this data is tested as instances of the Person class.
 
