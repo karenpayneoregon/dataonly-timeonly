@@ -60,7 +60,7 @@ namespace FileLibraryUnitTestProject
         }
 
         [TestMethod]
-        [TestTraits(Trait.PlaceHolder)]
+        [TestTraits(Trait.DateOnly)]
         public void ToLongDateStringTest()
         {
             var dateOnly = new DateOnly(2021, 9, 1);
@@ -69,7 +69,7 @@ namespace FileLibraryUnitTestProject
 
         }
         [TestMethod]
-        [TestTraits(Trait.PlaceHolder)]
+        [TestTraits(Trait.DateOnly)]
         public void ToShortDateStringTest()
         {
             var dateOnly = new DateOnly(2021, 9, 1);
