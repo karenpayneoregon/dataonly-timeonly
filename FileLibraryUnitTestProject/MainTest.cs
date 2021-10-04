@@ -56,7 +56,11 @@ namespace FileLibraryUnitTestProject
             var expectedDateOnly = new DateOnly(2021, 9, 1);
             Assert.IsTrue(DateOnly.TryParseExact(dateValue, "MM/dd/yyyy", out var resultDateOnly));
             Assert.AreEqual(resultDateOnly, expectedDateOnly);
-
+            
+            DateOnly badDateOnly = new(1, 1, 1);
+            DateOnly.TryParseExact(dateValue, "MM-dd-yyyy", out var resultDateOnly1);
+            Assert.AreEqual(resultDateOnly1, badDateOnly);
+            
         }
 
         [TestMethod]
