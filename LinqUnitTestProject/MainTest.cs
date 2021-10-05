@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using FileLibrary.Classes;
 using FileLibrary.Models;
 using LinqUnitTestProject.Base;
@@ -9,6 +12,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LinqUnitTestProject
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TestClass]
     public partial class MainTest : TestBase
     {
@@ -59,6 +65,89 @@ namespace LinqUnitTestProject
             Assert.AreEqual(person, expect);
 
         }
+
+        /// <summary>
+        /// Test Take/Skip
+        /// </summary>
+        /// <remarks>
+        /// Most index/range examples will hard code values,
+        /// here they are done by creating new index instances
+        /// </remarks>
+        [TestMethod]
+        [TestTraits(Trait.LINQ)]
+        public void EnumerableTakeSkipTest()
+        {
+            var list = Operations.ReadPeople();
+
+            var takeIndex = new Index(2);
+            var endIndex = new Index(6);
+
+            // .NET Core 6
+            var results1 = list.Take(takeIndex..endIndex).ToArray();
+
+            // Prior syntax
+            var results2 = list.Take(6).Skip(2).ToArray();
+
+            CollectionAssert.AreEqual(results1,results2);
+
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.LINQ)]
+        public void FirstOrDefaultLastOrDefaultOverloadTest()
+        {
+
+            var list = Operations.ReadPeople();
+
+            Person person = list.FirstOrDefault();
+            Assert.IsNotNull(person);
+
+            list = new List<Person>();
+            person = list.FirstOrDefault(new Person() {Id = 100, FirstName = "Bob", LastName = "White"});
+            Assert.IsNotNull(person);
+
+            Assert.IsNull(list.FirstOrDefault());
+
+
+        }
+
+        /// <summary>
+        /// Testing PeriodicTimer and marked as ignore because it takes time to run
+        /// </summary>
+        /// <returns>Nothing</returns>
+        [TestMethod]
+        //[Ignore]
+        [TestTraits(Trait.Timers)]
+        public async Task PeriodicTimerTest()
+        {
+            StringBuilder builder = new();
+            
+            int counter = 10;
+
+            var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+
+            try
+            {
+                while (await timer.WaitForNextTickAsync())
+                {
+                    builder.AppendLine($"Time: {DateTime.UtcNow:hh:mm:ss tt}");
+
+                    counter -= 1;
+                    if (counter <= 1)
+                    {
+                        break;
+                    }
+                }
+
+                Console.WriteLine(builder.ToString());
+            }
+            finally
+            {
+                timer.Dispose();
+            }
+        }
+
+
 
 
     }

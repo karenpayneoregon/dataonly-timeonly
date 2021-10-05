@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{573F4697-F21C-434D-A13D-C347DF827778}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		stash.txt = stash.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqUnitTestProject", "LinqUnitTestProject\LinqUnitTestProject.csproj", "{2D381BC9-77D2-461D-A1D9-907D5C0BCFBC}"

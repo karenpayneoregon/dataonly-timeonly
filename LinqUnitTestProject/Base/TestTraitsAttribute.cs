@@ -12,6 +12,7 @@ namespace LinqUnitTestProject.Base
         /// </summary>
         PlaceHolder,
         LINQ,
+        Timers,
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.
