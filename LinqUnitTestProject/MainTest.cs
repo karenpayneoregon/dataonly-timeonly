@@ -19,9 +19,6 @@ namespace LinqUnitTestProject
     public partial class MainTest : TestBase
     {
 
-        #region https://dotnetcoretutorials.com/2021/08/12/ienumerable-chunk-in-net-6/?recap
-
-
         /// <summary>
         /// Given 20 people, chunk size as 5 expect four as count
         /// </summary>
@@ -36,8 +33,6 @@ namespace LinqUnitTestProject
             Assert.AreEqual(chunks.Count(), 4);
 
         }
-
-        #endregion
 
         [TestMethod]
         [TestTraits(Trait.LINQ)]
