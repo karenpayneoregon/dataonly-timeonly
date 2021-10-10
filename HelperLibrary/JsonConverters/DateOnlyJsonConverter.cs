@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace FileLibrary.JsonConverters
+namespace HelperLibrary.JsonConverters
 {
     public sealed class DateOnlyJsonConverter : JsonConverter<DateOnly>
     {

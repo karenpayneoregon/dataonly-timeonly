@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FileLibrary.LanguageExtensions
+namespace HelperLibrary.LanguageExtensions
 {
     public static class DateOnlyExtensions
     {
@@ -14,6 +14,9 @@ namespace FileLibrary.LanguageExtensions
         /// <returns></returns>
         public static DateTime ToDateTime(this DateOnly sender, int hour = 0, int minutes = 0)
             => sender.ToDateTime(new TimeOnly(hour, minutes));
+
+        public static DateOnly ToDateOnly(this DateTime? sender) 
+            => new (sender.Value.Year, sender.Value.Month, sender.Value.Day);
 
     }
 }

@@ -18,18 +18,9 @@ namespace LinqUnitTestProject
     [TestClass]
     public partial class MainTest : TestBase
     {
-        [TestMethod]
-        [TestTraits(Trait.LINQ)]
-        public void TestMethod1()
-        {
-            // arrange
 
+        #region https://dotnetcoretutorials.com/2021/08/12/ienumerable-chunk-in-net-6/?recap
 
-            // act
-
-
-            // assert
-        }
 
         /// <summary>
         /// Given 20 people, chunk size as 5 expect four as count
@@ -45,6 +36,8 @@ namespace LinqUnitTestProject
             Assert.AreEqual(chunks.Count(), 4);
 
         }
+
+        #endregion
 
         [TestMethod]
         [TestTraits(Trait.LINQ)]
@@ -92,6 +85,7 @@ namespace LinqUnitTestProject
 
         }
 
+
         [TestMethod]
         [TestTraits(Trait.LINQ)]
         public void FirstOrDefaultLastOrDefaultOverloadTest()
@@ -103,20 +97,32 @@ namespace LinqUnitTestProject
             Assert.IsNotNull(person);
 
             list = new List<Person>();
-            person = list.FirstOrDefault(new Person() {Id = 100, FirstName = "Bob", LastName = "White"});
+            person = new () { Id = 100, FirstName = "Bob", LastName = "White" };
+            person = list.FirstOrDefault(person);
             Assert.IsNotNull(person);
 
             Assert.IsNull(list.FirstOrDefault());
 
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.LINQ)]
+        public void LastOrDefaultDefaultOverloadTest()
+        {
+            List<Person> list = new List<Person>();
+
+            Assert.IsNull(list.FirstOrDefault());
+            Assert.IsNotNull(list.FirstOrDefault(new Person()));
 
         }
+
 
         /// <summary>
         /// Testing PeriodicTimer and marked as ignore because it takes time to run
         /// </summary>
         /// <returns>Nothing</returns>
         [TestMethod]
-        //[Ignore]
+        [Ignore]
         [TestTraits(Trait.Timers)]
         public async Task PeriodicTimerTest()
         {
@@ -146,9 +152,5 @@ namespace LinqUnitTestProject
                 timer.Dispose();
             }
         }
-
-
-
-
     }
 }

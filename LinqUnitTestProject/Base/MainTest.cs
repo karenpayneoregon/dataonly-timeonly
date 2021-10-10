@@ -17,10 +17,7 @@ namespace LinqUnitTestProject
         [TestInitialize]
         public void Initialization()
         {
-            if (TestContext.TestName == nameof(TestMethod1))
-            {
-                // TODO
-            }
+
         }
 
         /// <summary>
@@ -29,10 +26,7 @@ namespace LinqUnitTestProject
         [TestCleanup]
         public void TestCleanup()
         {
-            if (TestContext.TestName == nameof(TestMethod1))
-            {
-                // TODO
-            }
+  
         }
         /// <summary>
         /// Perform any initialize for the class

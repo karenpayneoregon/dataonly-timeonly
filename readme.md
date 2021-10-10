@@ -1,6 +1,6 @@
-# Working with DateOnly and TimeOnly (C#)
+# .NET 6 code sample for VS2019 C#
 
-This repository demonstrates simple usage of [DateOnly Struct](https://docs.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) done with a prerelease product.
+This repository demonstrates simple usage of [DateOnly Struct](https://docs.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) done with a prerelease product along with other methods e.g. MaxBy/MinBy.
 
 ![img](assets/CloneOrFork.png)
 
@@ -13,6 +13,21 @@ To convert a DateOnly variable to a DateTime we use ToDateTime which requires a 
 ```charp
 public static DateTime ToDateTime(this DateOnly sender, int hour = 0, int minutes = 0)
     => sender.ToDateTime(new TimeOnly(hour, minutes));
+
+public static DateOnly ToDateOnly(this DateTime? sender) 
+    => new (sender.Value.Year, sender.Value.Month, sender.Value.Day);
+```
+
+## Helpers
+
+```csharp
+public static IEnumerable<TSource> Prepend<TSource>(this List<TSource> sender, TSource item) 
+    where TSource : new() => Enumerable.Prepend(sender, item);
+```
+
+```csharp
+public static IEnumerable<Age> Ages(this List<Person> sender) => 
+    sender.Select(person => person.BirthDateAsDateTime.Age(DateTime.Now));
 ```
 
 
@@ -33,6 +48,24 @@ public static DateTime ToDateTime(this DateOnly sender, int hour = 0, int minute
 
 </Project>
 ```
+
+Or use this for the project file
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+          <EnablePreviewFeatures>true</EnablePreviewFeatures>
+          <LangVersion>preview</LangVersion>
+          <OutputType>Exe</OutputType>
+          <TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+           <PackageReference Include="System.Runtime.Experimental" Version="6.0.0-preview.7.21377.19" />
+	</ItemGroup>
+</Project>
+```
+
 
 - Currently no code samples for [TimeOnly](https://docs.microsoft.com/en-us/dotnet/api/system.timeonly?view=net-6.0) which will follow shortly.
 

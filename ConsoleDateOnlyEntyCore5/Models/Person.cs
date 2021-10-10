@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using HelperLibrary.JsonConverters;
 using HelperLibrary.LanguageExtensions;
 
-namespace FileLibrary.Models
+namespace DateOnlyEFCore.Models
 {
     public class Person
     {
@@ -13,33 +13,32 @@ namespace FileLibrary.Models
 
         [JsonConverter(typeof(DateOnlyJsonConverter))]
         public DateOnly BirthDate { get; set; }
-
+        
         /// <summary>
         /// Representation of <see cref="DateOnly"/> property <see cref="BirthDate"/>
         /// </summary>
         [JsonIgnore]
-        public DateTime BirthDateAsDateTime
+        public DateTime BirthDateAsDateTime 
             => BirthDate.ToDateTime();
-        public override string ToString() => $"{FirstName} {LastName} {BirthDate}";
 
-        protected bool Equals(Person other) 
-            => Id == other.Id && FirstName == other.FirstName && LastName == other.LastName;
+        public override string ToString() 
+            => $"{Id,-6:D2}{FirstName, -15} {LastName, -15} {BirthDate:MM/dd/yyyy}";
+
+        protected bool Equals(Person other) => Id == other.Id && FirstName == other.FirstName && LastName == other.LastName;
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             return Equals((Person)obj);
         }
 
-        public override int GetHashCode() 
-            => HashCode.Combine(Id, FirstName, LastName);
+        public override int GetHashCode() => HashCode.Combine(Id, FirstName, LastName);
 
-        public static bool operator ==(Person left, Person right) 
-            => Equals(left, right);
+        public static bool operator ==(Person left, Person right) => Equals(left, right);
 
-        public static bool operator !=(Person left, Person right) 
-            => !Equals(left, right);
+        public static bool operator !=(Person left, Person right) => !Equals(left, right);
     }
 }

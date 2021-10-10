@@ -2,8 +2,8 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using FileLibrary.Classes;
-using FileLibrary.LanguageExtensions;
 using FileLibraryUnitTestProject.Base;
+using HelperLibrary.LanguageExtensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FileLibraryUnitTestProject
