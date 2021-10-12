@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using TimeOnlyEFCore.Models;
+using TimeOnlyEFCore.LanguageExtensions;
 
 #nullable disable
 
@@ -39,14 +40,14 @@ namespace TimeOnlyEFCore.Data
             modelBuilder
                 .Entity<TimeTable>()
                 .Property(e => e.StartTime)
-                .HasConversion(v => v.Value.ToTimeSpan(), 
-                    v => new TimeOnly(v.Hours, v.Minutes));
+                .HasConversion(ts => ts.Value.ToTimeSpan(),
+                    ts => ts.ToTimeOnly());
 
             modelBuilder
                 .Entity<TimeTable>()
                 .Property(e => e.EndTime)
                 .HasConversion(ts => ts.Value.ToTimeSpan(),
-                    ts => new TimeOnly(ts.Hours, ts.Minutes));
+                    ts => ts.ToTimeOnly());
 
             OnModelCreatingPartial(modelBuilder);
         }
