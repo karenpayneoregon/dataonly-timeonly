@@ -11,11 +11,7 @@ namespace TimeOnlyEFCore.Models
         public int id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-        public TimeSpan? StartTime { get; set; }
-
-        public TimeOnly? Start => StartTime.TimeOnly();
-        public TimeSpan? EndTime { get; set; }
-        public TimeOnly? End => EndTime.TimeOnly();
+        public TimeOnly? StartTime { get; set; }
+        public TimeOnly? EndTime { get; set; }
     }
 }

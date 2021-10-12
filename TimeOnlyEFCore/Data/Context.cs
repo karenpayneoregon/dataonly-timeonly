@@ -27,9 +27,26 @@ namespace TimeOnlyEFCore.Data
             }
         }
 
+        /// <summary>
+        /// Note value converters for converting two time(7) properties to TimeOnly
+        /// https://docs.microsoft.com/en-us/ef/core/modeling/value-conversions?tabs=data-annotations
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder
+                .Entity<TimeTable>()
+                .Property(e => e.StartTime)
+                .HasConversion(v => v.Value.ToTimeSpan(), 
+                    v => new TimeOnly(v.Hours, v.Minutes));
+
+            modelBuilder
+                .Entity<TimeTable>()
+                .Property(e => e.EndTime)
+                .HasConversion(ts => ts.Value.ToTimeSpan(),
+                    ts => new TimeOnly(ts.Hours, ts.Minutes));
 
             OnModelCreatingPartial(modelBuilder);
         }

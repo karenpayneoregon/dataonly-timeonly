@@ -1,7 +1,6 @@
 ﻿# About
 
-Here there are two columns of type time(7) which map to TimeSpan. Currently these two columns can not be mapped in EF Core to TimeOnly. There are two readonly properties that convert the two TimeSpan columns to TimeOnly.
+Example that reverse engineering time(7) columns are typed as TimeSpan?, using a Value Converter code in Context  class map TimeSpan to TimeOnly
 
-Looks like EF Core 6 will support TimeOnly.
 
 ![imag](assets/ts1.png)
