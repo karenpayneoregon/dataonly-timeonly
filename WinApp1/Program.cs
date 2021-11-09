@@ -14,7 +14,8 @@ namespace WinApp1
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
+            //ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
             Application.Run(new Form1());
         }
     }
