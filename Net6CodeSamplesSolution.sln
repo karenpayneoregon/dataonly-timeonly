@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net6perf", "net6perf\net6pe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeOnlyEFCore", "TimeOnlyEFCore\TimeOnlyEFCore.csproj", "{286E4F11-6031-48FC-8CB1-49302CAF103A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinApp1", "WinApp1\WinApp1.csproj", "{96692F42-37CF-490F-937A-1C936AB0E824}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{286E4F11-6031-48FC-8CB1-49302CAF103A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{286E4F11-6031-48FC-8CB1-49302CAF103A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{286E4F11-6031-48FC-8CB1-49302CAF103A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96692F42-37CF-490F-937A-1C936AB0E824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96692F42-37CF-490F-937A-1C936AB0E824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96692F42-37CF-490F-937A-1C936AB0E824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96692F42-37CF-490F-937A-1C936AB0E824}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

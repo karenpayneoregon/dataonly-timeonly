@@ -24,7 +24,7 @@ namespace DateOnlyEFCore
 
             for (int index = 0; index < 10; index++)
             {
-                Debug.WriteLine(birthdaysList[index]);
+                Console.WriteLine(birthdaysList[index]);
             }
 
         }

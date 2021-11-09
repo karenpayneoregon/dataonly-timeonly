@@ -15,7 +15,7 @@ namespace TimeOnlyEFCore
             foreach (var table in results)
             {
                 // TimeOnly columns are only format for ease of reading
-                Debug.WriteLine($"{table.id, -4:D2}{table.FirstName,-12}{table.LastName,-12}{table.StartTime,-12:hh:mm tt}{table.EndTime,-12:hh:mm tt}");
+                Console.WriteLine($"{table.id, -4:D2}{table.FirstName,-12}{table.LastName,-12}{table.StartTime,-12:hh:mm tt}{table.EndTime,-12:hh:mm tt}");
             }
         }
     }
