@@ -14,7 +14,14 @@ namespace WinApp1
         [STAThread]
         static void Main()
         {
+            /*
+             * This is default, will not compile in VS2019 but will with dotnet build or in VS Code
+             */
             //ApplicationConfiguration.Initialize();
+
+            /*
+             * Add by Karen as per the above.
+             */
             Application.EnableVisualStyles();
             Application.Run(new Form1());
         }
