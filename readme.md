@@ -18,6 +18,7 @@ public static DateTime ToDateTime(this DateOnly sender, int hour = 0, int minute
 
 ## Remarks
 
+- File scoped namespaces feature from C# 10 won't work
 - To use DateOnly and TimeOnly install [SDK 6x](https://dotnet.microsoft.com/download/dotnet/6.0?WT.mc_id=DT-MVP-5002866)
 - If using `VS2019` for desktop projects
   - Set Use previews as shown in the image below
