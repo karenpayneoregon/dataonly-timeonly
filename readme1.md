@@ -1,12 +1,13 @@
 # .NET 6 code sample for VS2019 C#
 
-This repository demonstrates simple usage of [DateOnly Struct](https://docs.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) done with a prerelease product along with other methods e.g. MaxBy/MinBy.
+# Demonstrates DateOnly/TimeOnly
 
-![img](assets/CloneOrFork.png)
+Simple usage of [DateOnly Struct](https://docs.microsoft.com/en-us/dotnet/api/system.dateonly?view=net-6.0) done with a prerelease product along with other methods e.g. MaxBy/MinBy.
+
 
 There is a [class project](https://github.com/karenpayneoregon/dataonly-timeonly/blob/master/FileLibrary/Classes/Operations.cs) which is responsible for reading a json file with type Person class into a list using [System.Text.Json. JsonSerializer.Deserialize](https://docs.microsoft.com/en-us/dotnet/api/system.text.json?view=net-5.0). In the unit test project this data is tested as instances of the Person class.
 
-## Extension
+## Extension methods
 
 To convert a DateOnly variable to a DateTime we use ToDateTime which requires a TimeOnly so to keep code light here is a lazy [extension](https://github.com/karenpayneoregon/dataonly-timeonly/blob/master/FileLibrary/LanguageExtensions/DateOnlyExtensions.cs) which default to mid-night or allows changing hours and/or minutes.
 
