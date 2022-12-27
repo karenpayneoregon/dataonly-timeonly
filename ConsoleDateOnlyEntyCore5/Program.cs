@@ -18,6 +18,8 @@ namespace DateOnlyEFCore
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+
+
             using var context = new Context();
 
             var birthdaysList = context.Birthdays.ToList();
@@ -28,5 +30,7 @@ namespace DateOnlyEFCore
             }
 
         }
+
+
     }
 }
